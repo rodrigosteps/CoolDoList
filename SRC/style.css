@@ -1,0 +1,129 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+}
+/*=======General Styles=========*/
+:root {
+  --Tittlefont: "Just Another Hand";
+  --TaskFont: "Gochi Hand";
+  --bkg: #fafafa;
+  --mainMargin: 0 auto;
+  --mainColor: blue;
+  --CardColor: grey;
+  --Radius: 24px;
+  --OutsideRadius: 32px;
+  --Padding: 1em;
+  --TextColor: #fafafa;
+}
+/*======= Logo Style =========*/
+.AppLogo {
+  width: 40em;
+  display: flex;
+  flex-direction: column;
+  margin: 4em auto;
+}
+
+.AppLogo img {
+  width: 200px;
+}
+/*======= Main Container Style =========*/
+.Container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  align-items: center;
+  margin: var(--mainMargin);
+  font-family: var(--Tittlefont);
+}
+
+/*======= Style Card to do list =========*/
+.CardTask {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: var(--mainMargin);
+  padding: var(--Padding);
+  background-color: var(--CardColor);
+  border-radius: var(--OutsideRadius);
+  font-size: 1.5em;
+  font-weight: bold;
+}
+/*======= H1 Style =========*/
+.AppTittle,
+.TaskTittle {
+  font-size: 2em;
+}
+
+/*======= Input Style and Button Style =========*/
+.TaskInput, .AddTask{
+  padding: var(--Padding);
+}
+
+.TaskInput input {
+  width: 30em;
+  height: 4em;
+  border-radius: var(--Radius);
+}
+
+.AddTask button {
+  padding: 0.2em;
+  font-size: 2em;
+  border-radius: var(--Radius);
+  background-color: var(--mainColor);
+  font-family: var(--TaskFont);
+  color: var(--TextColor);
+}
+
+/*======= Button Hover Style =========*/
+.AddTask button:hover {
+  background-color: var(--TextColor);
+  color: var(--mainColor);
+  transition: 0.2s ease-in-out;
+  font-size: 3em;
+  cursor:pointer;
+}
+
+.AddTask button:active {
+  animation: poup 0.6s ease-in-out alternate forwards;
+  background-color: var(--mainColor);
+  color: var(--TextColor);
+}
+
+@keyframes poup {
+  0% {
+    transform: translatey(-1px);
+  }
+  100% {
+    transform: translatey(4px);
+  }
+}
+/*======= Task List Style =========*/
+
+.Tasks {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: var(--mainMargin);
+  padding: var(--Padding);
+  background-color: var(--CardColor);
+  border-radius: var(--OutsideRadius);
+  gap: 2em;
+}
+
+.NoTask{
+background-color: orange;
+}
+
+.Tasklist {
+  text-align: center;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 12em;
+  border-radius: var(--Radius);
+  background-color: var(--mainColor);
+  font-family: var(--TaskFont);
+  font-size: 3em;
+  color: var(--TextColor);
+  gap: 1em;
+}

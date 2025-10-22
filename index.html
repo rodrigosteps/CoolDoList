@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="mobile-web-app-capable" content="yes" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Gochi+Hand&family=Just+Another+Hand&family=Knewave&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./SRC/style.css">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+
+    <title>Cool Do List</title>
+</head>
+
+<body>
+    <!--Logo of App-->
+    <header class="AppLogo">
+        <img src="" alt="logo">
+    </header>
+
+    <main class="Container">
+        <article class="CardTask">
+            <!--Tittle-->
+            <section class="AppTittle">
+                <h1> Add your Task </h1>
+            </section>
+
+            <!-- Input Field-->
+            <section class="TaskInput">
+                <input id="TaskInput" type="text" placeholder="Writte your task"> </input>
+            </section>
+
+            <!--Button-->
+            <section class="AddTask">
+                <button id="AddTask">Add Task</button>
+            </section>
+
+        </article>
+
+        <!--Task list-->
+
+        <aside class="Tasks" id="Tasks">
+            <section class="TaskTittle">
+                <h1>Tasks Do To</h1>
+            </section>
+
+            <ul class="Tasklist" id="Tasklist">
+                <p class="NoTask" id='NoTask'></p>
+                
+            </ul>
+        </aside>
+
+
+    </main>
+
+</body>
+
+<script src="./SRC/Dolist.js"></script>
+
+</html>
