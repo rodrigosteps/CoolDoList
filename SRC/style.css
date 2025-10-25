@@ -10,45 +10,51 @@
   --TaskFont: "Gochi Hand";
   --bkg: #fafafa;
   --mainMargin: 0 auto;
-  --mainColor: blue;
-  --CardColor: grey;
+  --mainColor: #5bc0e8;
+  --CardColor: rgb(202, 202, 202);
   --Radius: 24px;
   --OutsideRadius: 32px;
   --Padding: 1em;
   --TextColor: #fafafa;
 }
+
+body {
+  background-color: #1c1c1c;
+}
 /*======= Logo Style =========*/
 .AppLogo {
-  width: 40em;
+  width: 100%;
+  margin: 1em auto;
   display: flex;
-  flex-direction: column;
-  margin: 4em auto;
+  justify-content: center;
 }
 
 .AppLogo img {
-  width: 200px;
+  width: 30em;
 }
 /*======= Main Container Style =========*/
 .Container {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  align-items: center;
+  justify-items: center; 
   margin: var(--mainMargin);
   font-family: var(--Tittlefont);
 }
 
 /*======= Style Card to do list =========*/
 .CardTask {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  position: static;
+  text-align: center;
+  width: 18em;
+  height: 16em;
   margin: var(--mainMargin);
   padding: var(--Padding);
   background-color: var(--CardColor);
-  border-radius: var(--OutsideRadius);
   font-size: 1.5em;
-  font-weight: bold;
+  border-radius: 30%;
+  corner-shape: squircle;
 }
+
 /*======= H1 Style =========*/
 .AppTittle,
 .TaskTittle {
@@ -56,14 +62,36 @@
 }
 
 /*======= Input Style and Button Style =========*/
-.TaskInput, .AddTask{
+.TaskInput,
+.AddTask {
   padding: var(--Padding);
 }
 
+.TaskInput input::placeholder {
+  font-family: var(--TaskFont);
+  color: var(--TextColor);
+  font-size: 36px;
+}
+
 .TaskInput input {
-  width: 30em;
-  height: 4em;
+  width: 340px;
+  height: 60px;
   border-radius: var(--Radius);
+  background-color: var(--mainColor);
+  color: var(--TextColor);
+  font-family: var(--TaskFont);
+  transition: font-size 0.5s ease;
+  font-size: 36px;
+  text-indent: 10%;
+  border: none;
+}
+
+.TaskInput input:focus {
+  font-size: 1.5em;
+  padding-top: 6px;
+  text-indent: 10%;
+  scale: 1.1;
+  transition: 0.3s ease-in-out;
 }
 
 .AddTask button {
@@ -73,46 +101,53 @@
   background-color: var(--mainColor);
   font-family: var(--TaskFont);
   color: var(--TextColor);
+  border: none;
 }
 
 /*======= Button Hover Style =========*/
-.AddTask button:hover {
+.AddTask button:hover{
   background-color: var(--TextColor);
   color: var(--mainColor);
-  transition: 0.2s ease-in-out;
-  font-size: 3em;
-  cursor:pointer;
-}
-
-.AddTask button:active {
-  animation: poup 0.6s ease-in-out alternate forwards;
-  background-color: var(--mainColor);
-  color: var(--TextColor);
+  font-size: 2em;
+  cursor: pointer;
+  animation: poup 0.2s ease-in-out alternate forwards;
 }
 
 @keyframes poup {
   0% {
-    transform: translatey(-1px);
+    box-shadow: #00649a;
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
   }
   100% {
-    transform: translatey(4px);
+    box-shadow: 0 1px #00649a, 0 2px #00649a, 0 3px #00649a, 0 4px #00649a,
+      0 5px #00649a, 0 6px #00649a, 0 7px #00649a, 0 8px #00649a;
+    -webkit-transform: translateY(-8px);
+    transform: translateY(-8px);
   }
+}
+
+.AddTask button:active {
+  background-color: var(--mainColor);
+  color: var(--TextColor);
 }
 /*======= Task List Style =========*/
 
 .Tasks {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  text-align: center;
   margin: var(--mainMargin);
-  padding: var(--Padding);
+  padding: 3em 4em;
   background-color: var(--CardColor);
-  border-radius: var(--OutsideRadius);
-  gap: 2em;
+  border-radius: 20%;
+  corner-shape: squircle;
 }
 
-.NoTask{
-background-color: orange;
+.NoTask {
+  background-color: orange;
+  border-radius: var(--OutsideRadius);
+  font-size: 2.5em;
+  color: var(--TextColor);
+  font-family: var(--TaskFont);
 }
 
 .Tasklist {
@@ -120,10 +155,58 @@ background-color: orange;
   overflow: hidden;
   text-overflow: ellipsis;
   width: 12em;
-  border-radius: var(--Radius);
-  background-color: var(--mainColor);
   font-family: var(--TaskFont);
   font-size: 3em;
   color: var(--TextColor);
-  gap: 1em;
+  list-style: none;
+}
+
+.Tasklist li {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-indent: 5%;
+  padding-top: 0.4em;
+  height: 2em;
+  margin-top: 0.2em;
+  border-radius: var(--Radius);
+  background-color: var(--mainColor);
+  animation: fadeSlide 0.6s ease-in normal forwards;
+}
+
+@keyframes fadeSlide {
+  0% {
+    transform: translate(-1em);
+    opacity: 0;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    transform: 0;
+  }
+}
+
+/*Mobile Style 900px*/
+@media screen and (max-width: 900px) {
+  .Container {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+  }
+
+  .Tasks {
+    width: 40em;
+  }
+
+  .NoTask,
+  .Tasklist li {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-indent: 5%;
+    margin-right: 1em;
+  }
+}
+
+@media screen and (max-width: 400px) {
+
 }
