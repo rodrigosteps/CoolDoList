@@ -1,23 +1,46 @@
 
+
 const AddNewTask = document.getElementById("AddTask");//Task const
 const getTask = document.getElementById("TaskInput");//take the user input 
 const NoTaskAlert = document.getElementById("NoTask")// If no task is add show an alert
 
+
 function NewTask(){//main function
+    //Verify if input is empty
+    if (getTask.value !== "" ){ 
+        //Create a element for new task
+        const taskIn = document.createElement("li");
+        
+        //Remove Task if done
+        const taskRemove = document.createElement("button");
+        taskRemove.textContent='X';
 
-if (getTask.value !== "" ){ //Verify if input is empty
+        //marker the task if done
+        const taskMarked = document.createElement("button");
+        taskMarked.textContent="Done"
 
-    const TaskIn = document.createElement("li")//Create a element for new task
+        //Add the task on list
+        document.getElementById('Tasklist').appendChild(taskIn)
+        taskIn.textContent = getTask.value;
+        taskIn.prepend(taskRemove);
+
+        //clear input field after add new task
+        getTask.value="";      
+
+        //Line to clear no task alert
+        NoTaskAlert.textContent="";
+        
+        //function to revome task already done
+        function taskDone(){
+            taskIn.remove();
+        }
+        taskRemove.addEventListener('click', taskDone)
+    }
     
-    document.getElementById('Tasklist').appendChild(TaskIn)
-    TaskIn.textContent = getTask.value;
-    getTask.value="";//clear input field after add new task
-    NoTaskAlert.textContent="";//clear no task alert
-}
-
-else{
-    NoTaskAlert.textContent="Add a New task!";// If no task is add show an alert
-}
+    else{
+        // If no task is add show an alert
+        NoTaskAlert.textContent="Add a New task!";
+    }
 }
 
 //Trigger Event
