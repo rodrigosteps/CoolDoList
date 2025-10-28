@@ -13,7 +13,7 @@ function NewTask(){//main function
         
         //Remove Task if done
         const taskRemove = document.createElement("button");
-        taskRemove.textContent='X';
+        taskRemove.textContent='X'; 
 
         //marker the task if done
         const taskMarked = document.createElement("button");

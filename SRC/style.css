@@ -4,6 +4,7 @@
   box-sizing: border-box;
   text-decoration: none;
 }
+
 /*=======General Styles=========*/
 :root {
   --Tittlefont: "Just Another Hand";
@@ -37,7 +38,7 @@ body {
 .Container {
   display: flex;
   flex-direction: row;
-  justify-content:flex-end;
+  justify-content: flex-end;
   width: 70rem;
   margin: var(--mainMargin);
   font-family: var(--Tittlefont);
@@ -85,17 +86,19 @@ body {
   transition: font-size 0.5s ease;
   font-size: 36px;
   text-indent: 10%;
-border-top: 4px solid black ;
-  border-bottom: 3px solid black ;
-  border-left: 3px solid black ;
-  border-right: 2px solid black ;}
+  border-top: 4px solid black;
+  border-bottom: 3px solid black;
+  border-left: 1px solid black;
+  border-right: 3px solid black;
+}
 
 .TaskInput input:focus {
   font-size: 1.5em;
   padding-top: 6px;
   text-indent: 10%;
   scale: 1.1;
-  transition: 0.3s ease-in-out;
+  transition: 0.2s ease-in-out;
+  outline: none;
 }
 
 .AddTask button {
@@ -105,14 +108,14 @@ border-top: 4px solid black ;
   background-color: var(--mainColor);
   font-family: var(--TaskFont);
   color: var(--TextColor);
-  border-top: 2px solid black ;
-  border-bottom: 3px solid black ;
-  border-left: 3px solid black ;
-  border-right: 2px solid black ;
+  border-top: 1px solid black;
+  border-bottom: 3px solid black;
+  border-left: 4px solid black;
+  border-right: 2px solid black;
 }
 
 /*======= Button Hover Style =========*/
-.AddTask button:hover{
+.AddTask button:hover {
   background-color: var(--TextColor);
   color: var(--mainColor);
   font-size: 2em;
@@ -138,8 +141,8 @@ border-top: 4px solid black ;
   background-color: var(--mainColor);
   color: var(--TextColor);
 }
-/*======= Task List Style =========*/
 
+/*======= Task List Style =========*/
 .Tasks {
   text-align: center;
   margin: var(--mainMargin);
@@ -154,21 +157,20 @@ border-top: 4px solid black ;
   bottom: 40px;
   right: 40px;
   width: 10em;
-  transition:  4s ;
+  transition: 4s;
   background-color: orange;
   border-radius: var(--OutsideRadius);
   font-size: 3.5em;
   color: var(--TextColor);
   font-family: var(--TaskFont);
-  animation: fadeout 4s ease-in-out infinite forwards ;
-
+  animation: fadeout 4s ease-in-out infinite forwards;
 }
 
 @keyframes fadeout {
   20% {
     transform: translatey(40%);
   }
-    }
+}
 
 .Tasklist {
   width: 12em;
@@ -181,14 +183,14 @@ border-top: 4px solid black ;
 .Tasklist li {
   text-indent: 5%;
   margin-top: 0.2em;
-  padding-right:0.9em ;
+  padding-right: 0.9em;
   border-radius: var(--Radius);
   border: var(--border);
   background-color: var(--mainColor);
-  border-top: 2px solid black ;
-  border-bottom: 3px solid black ;
-  border-left: 3px solid black ;
-  border-right: 2px solid black ;
+  border-top: 2px solid black;
+  border-bottom: 3px solid black;
+  border-left: 3px solid black;
+  border-right: 2px solid black;
   animation: fadeSlide 0.5s ease-out normal forwards;
 }
 
@@ -204,31 +206,63 @@ border-top: 4px solid black ;
     transform: 0;
   }
 }
-/**/
-.Tasklist button{
+/* Button to remove */
+.Tasklist button {
   position: absolute;
-  left:30.5em;
-  padding: 0.4em;
-  font-size:0.36em;
+  left: 30.5em;
+  width: 2em;
+  height: 2em;
+  font-size: 0.36em;
   font-family: var(--TaskFont);
   color: red;
   background-color: #fafafa;
-border-top: 2px solid black ;
-  border-bottom: 3px solid black ;
-  border-left: 3px solid black ;
-  border-right: 2px solid black ;  border-radius: 0.8em;
+  border-top: 2px solid black;
+  border-bottom: 3px solid black;
+  border-left: 3px solid black;
+  border-right: 2px solid black;
+  border-radius: 0.8em;
+}
+
+.Tasklist button:hover {
+  transition: 0.2s ease-in-out;
+  transform: rotate(-30deg) translate(2px, -4px);
+  scale: 1.1;
 }
 
 /*Mobile Style 900px*/
 @media screen and (max-width: 900px) {
+  .AppLogo {
+    width: 100%;
+    margin: 1em auto;
+  }
+
+  .AppLogo img {
+    width: 20em;
+  }
+
   .Container {
     display: flex;
     flex-direction: column;
+    width: 360px;
     gap: 1em;
   }
 
-  .Tasks {
-    width: 40em;
+  .Tasks,
+  .CardTask {
+    width: 340px;
+    font-size: 20px;
+  }
+
+  .CardTask input {
+    width: 280px;
+  }
+  .TaskInput,
+  .AddTask {
+    padding: 0.5em;
+  }
+
+  .TaskInput input::placeholder {
+    font-size: 30px;
   }
 
   .NoTask,
@@ -236,10 +270,45 @@ border-top: 2px solid black ;
     overflow: hidden;
     text-overflow: ellipsis;
     text-indent: 5%;
+    font-size: 30px;
+    width: 290px;
     margin-right: 1em;
+  }
+
+  .Tasklist button {
+    left: 22.5em;
+  }
+
+  .AddTask button {
+    width: 5.5em;
+  }
+
+  .AddTask {
+    margin-top: 0;
+  }
+
+  .AddTask button:active {
+    background-color: var(--TextColor);
+    color: var(--mainColor);
+    font-size: 2em;
+    animation: poup 0.2s ease-in-out infinite forwards;
+  }
+
+  @keyframes poup {
+    0% {
+      -webkit-transform: translateY(-8);
+      transform: translateY(-8);
+    }
+    50% {
+      -webkit-transform: translateY(8px);
+      transform: translateY(8px);
+    }
+    100% {
+      background-color: var(--mainColor);
+      color: var(--TextColor);
+      -webkit-transform: translateY(-8);
+      transform: translateY(-8);
+    }
   }
 }
 
-@media screen and (max-width: 400px) {
-
-}

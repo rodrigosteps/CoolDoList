@@ -1,65 +1,60 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="mobile-web-app-capable" content="yes" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Gochi+Hand&family=Just+Another+Hand&family=Knewave&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="./SRC/style.css">
-    <link rel="shortcut icon" href="./ASSETS/favicon.svg" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Gochi+Hand&family=Just+Another+Hand&family=Knewave&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./SRC/style.css" />
+    <link rel="shortcut icon" href="./ASSETS/favicon.svg" type="image/x-icon" />
 
     <title>Cool Do List</title>
-</head>
+  </head>
 
-<body>
+  <body>
     <!--Logo of App-->
     <header class="AppLogo">
-        <img src="./ASSETS/logo.svg" alt="logo">
+      <img src="./ASSETS/logo.svg" alt="logo" />
     </header>
 
     <main class="Container">
-        <article class="CardTask">
-            <!--Tittle-->
-            <section class="AppTittle">
-                <h1> Add your Task </h1>
-            </section>
+      <article class="CardTask">
+        <!--Tittle-->
+        <section class="AppTittle">
+          <h1>Add your Task</h1>
+        </section>
 
-            <!-- Input Field-->
-            <section class="TaskInput">
-                <input id="TaskInput" type="text" placeholder="What your task ?">
-            </section>
+        <!-- Input Field-->
+        <section class="TaskInput">
+          <input id="TaskInput" type="text" placeholder="What your task ?" />
+        </section>
 
-            <!--Button-->
-            <section class="AddTask">
-                <button id="AddTask">Add Task</button>
-            </section>
+        <!--Button-->
+        <section class="AddTask">
+          <button id="AddTask">Add Task</button>
+        </section>
+      </article>
 
-        </article>
+      <!--Task list-->
 
-        <!--Task list-->
+      <aside class="Tasks" id="Tasks">
+        <section class="TaskTittle">
+          <h1>Tasks To Do</h1>
+        </section>
 
-        <aside class="Tasks" id="Tasks">
-            <section class="TaskTittle">
-                <h1>Tasks To Do</h1>
-            </section>
-            
-            <ul class="Tasklist" id="Tasklist">
-            
-            </ul>
-            
-            <span class="NoTask" id='NoTask'></span>
-        </aside>
+        <ul class="Tasklist" id="Tasklist">
+          <li>correr <button>x</button></li>
 
+        </ul>
 
+        <span class="NoTask" id="NoTask"></span>
+      </aside>
     </main>
-
-</body>
-<script src="
-https://cdn.jsdelivr.net/npm/sortablejs@1.15.6/Sortable.min.js
-"></script>
-<script src="./SRC/Dolist.js"></script>
-
+  </body>
+  <script src="./SRC/Dolist.js"></script>
 </html>
