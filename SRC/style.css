@@ -59,9 +59,11 @@ body {
 }
 
 /*======= H1 Style =========*/
-.AppTittle,
-.TaskTittle {
+.AppTittle {
   font-size: 2em;
+}
+.TaskTittle {
+  font-size: 3em;
 }
 
 /*======= Input Style and Button Style =========*/
@@ -140,6 +142,23 @@ body {
 .AddTask button:active {
   background-color: var(--mainColor);
   color: var(--TextColor);
+  transition: 0.1s ease-in-out;
+  animation: press 15s ease-in-out alternate forwards;
+}
+
+@keyframes press {
+  0% {
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+  }
+  50% {
+    -webkit-transform: translateY(-4px);
+    transform: translateY(-4px);
+  }
+  100% {
+    -webkit-transform: translateY(-8px);
+    transform: translateY(-8px);
+  }
 }
 
 /*======= Task List Style =========*/
@@ -148,8 +167,7 @@ body {
   margin: var(--mainMargin);
   padding: 0 1em 2em 1em;
   background-color: var(--CardColor);
-  border-radius: 20%;
-  corner-shape: squircle;
+  border-radius: var(--Radius);
 }
 
 .NoTask {
@@ -163,12 +181,21 @@ body {
   font-size: 3.5em;
   color: var(--TextColor);
   font-family: var(--TaskFont);
-  animation: fadeout 4s ease-in-out infinite forwards;
+  animation: fadeout 1.5s ease-OUT infinite;
 }
 
 @keyframes fadeout {
-  20% {
-    transform: translatey(40%);
+  0%,
+  50% {
+    transform: translateY(0);
+  }
+
+  40% {
+    transform: translateY(-35px);
+  }
+
+  60% {
+    transform: translateY(-20px);
   }
 }
 
@@ -208,8 +235,9 @@ body {
 }
 /* Button to remove */
 .Tasklist button {
-  position: absolute;
-  left: 30.5em;
+  position: relative;
+  top: -1em;
+  left: 18em;
   width: 2em;
   height: 2em;
   font-size: 0.36em;
@@ -229,11 +257,21 @@ body {
   scale: 1.1;
 }
 
-/*Mobile Style 900px*/
-@media screen and (max-width: 900px) {
+.TaskDone {
+  color:rgb(202, 229, 248);
+  text-decoration:line-through;
+  font-style:italic;
+}
+
+
+
+
+
+
+/*MOBILE POTRAIT STYLE*/
+@media (min-width: 320px) and (max-width: 480px) {
   .AppLogo {
     width: 100%;
-    margin: 1em auto;
   }
 
   .AppLogo img {
@@ -275,6 +313,10 @@ body {
     margin-right: 1em;
   }
 
+  .Tasklist {
+    width: 5em;
+  }
+
   .Tasklist button {
     left: 22.5em;
   }
@@ -310,5 +352,121 @@ body {
       transform: translateY(-8);
     }
   }
+
+  .Tasklist li {
+    animation: fadeSlide 0.5s ease-out normal forwards;
+  }
+
+  @keyframes fadeSlide {
+    0% {
+      transform: translatey(-1em);
+      opacity: 0;
+    }
+    50% {
+      opacity: 0;
+    }
+    100% {
+      transform: 0;
+    }
+  }
 }
 
+/*TABLET POTRAIT STYLE*/
+@media (min-width: 768px) and (max-width: 1024px) {
+  .AppLogo {
+    width: 100%;
+    margin: 1em auto;
+  }
+
+  .AppLogo img {
+    width: 20em;
+  }
+
+  .Container {
+    display: flex;
+    flex-direction: column;
+    width: 660px;
+    gap: 1em;
+  }
+
+  .Tasks,
+  .CardTask {
+    width: 540px;
+    font-size: 20px;
+  }
+
+  .CardTask input {
+    width: 380px;
+  }
+  .TaskInput,
+  .AddTask {
+    padding: 0.5em;
+  }
+
+  .TaskInput input::placeholder {
+    font-size: 40px;
+  }
+
+  .NoTask,
+  .Tasklist li {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-indent: 5%;
+    font-size: 45px;
+    width: 490px;
+    margin-right: 1em;
+  }
+
+  .Tasklist button {
+    left: 26.5em;
+  }
+
+  .AddTask button {
+    width: 5.5em;
+  }
+
+  .AddTask {
+    margin-top: 0;
+  }
+
+  .AddTask button:active {
+    background-color: var(--TextColor);
+    color: var(--mainColor);
+    font-size: 3em;
+    animation: poup 0.2s ease-in-out infinite forwards;
+  }
+
+  @keyframes poup {
+    0% {
+      -webkit-transform: translateY(-8);
+      transform: translateY(-8);
+    }
+    50% {
+      -webkit-transform: translateY(8px);
+      transform: translateY(8px);
+    }
+    100% {
+      background-color: var(--mainColor);
+      color: var(--TextColor);
+      -webkit-transform: translateY(-8);
+      transform: translateY(-8);
+    }
+  }
+
+  .Tasklist li {
+    animation: fadeSlide 0.5s ease-out normal forwards;
+  }
+
+  @keyframes fadeSlide {
+    0% {
+      transform: translatey(-1em);
+      opacity: 0;
+    }
+    50% {
+      opacity: 0;
+    }
+    100% {
+      transform: 0;
+    }
+  }
+}

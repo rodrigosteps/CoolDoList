@@ -5,50 +5,59 @@ const getTask = document.getElementById("TaskInput");//take the user input
 const NoTaskAlert = document.getElementById("NoTask")// If no task is add show an alert
 
 
-function NewTask(){//main function
+function NewTask() {//main function
     //Verify if input is empty
-    if (getTask.value !== "" ){ 
+    if (getTask.value !== "") {
         //Create a element for new task
         const taskIn = document.createElement("li");
-        
+
         //Remove Task if done
         const taskRemove = document.createElement("button");
-        taskRemove.textContent='X'; 
+        taskRemove.textContent = 'X';
 
         //marker the task if done
         const taskMarked = document.createElement("button");
-        taskMarked.textContent="Done"
+        taskMarked.textContent = "✔"
 
         //Add the task on list
         document.getElementById('Tasklist').appendChild(taskIn)
         taskIn.textContent = getTask.value;
         taskIn.prepend(taskRemove);
 
+        document.getElementById('Tasklist').appendChild(taskIn)
+        taskIn.prepend(taskMarked);
+
+
         //clear input field after add new task
-        getTask.value="";      
+        getTask.value = "";
 
         //Line to clear no task alert
-        NoTaskAlert.textContent="";
-        
+        NoTaskAlert.textContent = "";
+
         //function to revome task already done
-        function taskDone(){
+        function taskDone() {
             taskIn.remove();
         }
-        taskRemove.addEventListener('click', taskDone)
+        taskRemove.addEventListener('click', taskDone);
+
+        function taskDid() {
+            taskIn.classList.add('TaskDone');
+        }
+        taskMarked.addEventListener('click', taskDid);
     }
-    
-    else{
+
+    else {
         // If no task is add show an alert
-        NoTaskAlert.textContent="Add a New task!";
+        NoTaskAlert.textContent = "Add a New task!";
     }
 }
 
 //Trigger Event
-AddNewTask.addEventListener("click",NewTask);
+AddNewTask.addEventListener("click", NewTask);
 
 //Keyboard function
-getTask.addEventListener('keydown',function(event){
-    if(event.key === 'Enter'){
+getTask.addEventListener('keydown', function (event) {
+    if (event.key === 'Enter') {
         event.preventDefault();
         NewTask();
     }
