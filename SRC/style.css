@@ -11,12 +11,12 @@
   --TaskFont: "Gochi Hand";
   --bkg: #fafafa;
   --mainMargin: 0 auto;
-  --mainColor: #5bc0e8;
-  --CardColor: rgb(202, 202, 202);
+  --mainColor: #e8e65b;
+  --CardColor: rgb(246, 243, 202);
   --Radius: 24px;
   --OutsideRadius: 32px;
   --Padding: 1em;
-  --TextColor: #fafafa;
+  --TextColor: #4f5403;
   --border: 3px solid #1c1c1c;
 }
 
@@ -200,17 +200,23 @@ body {
 }
 
 .Tasklist {
-  width: 12em;
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: start;
+  width: 15em;
   font-family: var(--TaskFont);
-  font-size: 3em;
+  font-size: 2.5em;
   color: var(--TextColor);
   list-style: none;
 }
 
 .Tasklist li {
-  text-indent: 5%;
+  display: flex;
+  flex-direction: row;
   margin-top: 0.2em;
-  padding-right: 0.9em;
+  width: 13em;
+  padding-left: 1em;
+  text-overflow: wrap;
   border-radius: var(--Radius);
   border: var(--border);
   background-color: var(--mainColor);
@@ -235,14 +241,12 @@ body {
 }
 /* Button to remove */
 .Tasklist button {
-  position: relative;
-  top: -1em;
-  left: 18em;
-  width: 2em;
-  height: 2em;
+  width: 3em;
+  height: 3em;
+  margin-top: 0.5em;
+  margin: 8px;
   font-size: 0.36em;
   font-family: var(--TaskFont);
-  color: red;
   background-color: #fafafa;
   border-top: 2px solid black;
   border-bottom: 3px solid black;
@@ -257,16 +261,25 @@ body {
   scale: 1.1;
 }
 
-.TaskDone {
-  color:rgb(202, 229, 248);
-  text-decoration:line-through;
-  font-style:italic;
+.Tasklist button:active {
+  transition: 0.2s ease-in-out;
+  transform: rotate(-30deg) translate(2px, -4px);
+  scale: 1.1;
+  animation: press 15s ease-in-out alternate forwards;
 }
 
+@keyframes press {
+  0%,
+  50% {
+    transform: translateY(0);
+  }
+}
 
-
-
-
+.TaskDone li {
+  filter: brightness(80%);
+  text-decoration: line-through;
+  font-style: italic;
+}
 
 /*MOBILE POTRAIT STYLE*/
 @media (min-width: 320px) and (max-width: 480px) {
