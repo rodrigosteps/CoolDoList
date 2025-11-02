@@ -178,7 +178,7 @@ body {
   transition: 4s;
   background-color: orange;
   border-radius: var(--OutsideRadius);
-  font-size: 3.5em;
+  font-size: 2em;
   color: var(--TextColor);
   font-family: var(--TaskFont);
   animation: fadeout 1.5s ease-OUT infinite;
@@ -224,6 +224,10 @@ body {
   border-bottom: 3px solid black;
   border-left: 3px solid black;
   border-right: 2px solid black;
+}
+
+.Tasklist li,
+.Tasklist button {
   animation: fadeSlide 0.5s ease-out normal forwards;
 }
 
@@ -263,125 +267,14 @@ body {
 
 .Tasklist button:active {
   transition: 0.2s ease-in-out;
-  transform: rotate(-30deg) translate(2px, -4px);
-  scale: 1.1;
+  transform: translate(2px, -4px);
   animation: press 15s ease-in-out alternate forwards;
-}
-
-@keyframes press {
-  0%,
-  50% {
-    transform: translateY(0);
-  }
 }
 
 .TaskDone li {
   filter: brightness(80%);
   text-decoration: line-through;
   font-style: italic;
-}
-
-/*MOBILE POTRAIT STYLE*/
-@media (min-width: 320px) and (max-width: 480px) {
-  .AppLogo {
-    width: 100%;
-  }
-
-  .AppLogo img {
-    width: 20em;
-  }
-
-  .Container {
-    display: flex;
-    flex-direction: column;
-    width: 360px;
-    gap: 1em;
-  }
-
-  .Tasks,
-  .CardTask {
-    width: 340px;
-    font-size: 20px;
-  }
-
-  .CardTask input {
-    width: 280px;
-  }
-  .TaskInput,
-  .AddTask {
-    padding: 0.5em;
-  }
-
-  .TaskInput input::placeholder {
-    font-size: 30px;
-  }
-
-  .NoTask,
-  .Tasklist li {
-    overflow: hidden;
-    text-overflow: ellipsis;
-    text-indent: 5%;
-    font-size: 30px;
-    width: 290px;
-    margin-right: 1em;
-  }
-
-  .Tasklist {
-    width: 5em;
-  }
-
-  .Tasklist button {
-    left: 22.5em;
-  }
-
-  .AddTask button {
-    width: 5.5em;
-  }
-
-  .AddTask {
-    margin-top: 0;
-  }
-
-  .AddTask button:active {
-    background-color: var(--TextColor);
-    color: var(--mainColor);
-    font-size: 2em;
-    animation: poup 0.2s ease-in-out infinite forwards;
-  }
-
-  @keyframes poup {
-    0% {
-      -webkit-transform: translateY(-8);
-      transform: translateY(-8);
-    }
-    50% {
-      -webkit-transform: translateY(8px);
-      transform: translateY(8px);
-    }
-    100% {
-      background-color: var(--mainColor);
-      color: var(--TextColor);
-      -webkit-transform: translateY(-8);
-      transform: translateY(-8);
-    }
-  }
-
-  .Tasklist li {
-    animation: fadeSlide 0.5s ease-out normal forwards;
-  }
-
-  @keyframes fadeSlide {
-    0% {
-      transform: translatey(-1em);
-      opacity: 0;
-    }
-    50% {
-      opacity: 0;
-    }
-    100% {
-      transform: 0;
-    }
-  }
 }
 
 /*TABLET POTRAIT STYLE*/
@@ -425,13 +318,20 @@ body {
     overflow: hidden;
     text-overflow: ellipsis;
     text-indent: 5%;
-    font-size: 45px;
-    width: 490px;
-    margin-right: 1em;
+    font-size: 40px;
+  }
+
+  .Tasklist {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    width: 10em;
   }
 
   .Tasklist button {
-    left: 26.5em;
+    width: 200px;
+    margin: 0;
   }
 
   .AddTask button {
@@ -482,4 +382,119 @@ body {
       transform: 0;
     }
   }
+}
+/*MOBILE POTRAIT STYLE*/
+@media (min-width: 320px) and (max-width: 480px) {
+  .AppLogo {
+    width: 100%;
+  }
+
+  .AppLogo img {
+    width: 20em;
+  }
+
+  .Container {
+    display: flex;
+    flex-direction: column;
+    width: 360px;
+    gap: 1em;
+  }
+
+  .Tasks {
+    width: 340px;
+    font-size: 15px;
+  }
+  .CardTask {
+    width: 340px;
+    font-size: 20px;
+  }
+
+  .CardTask input {
+    width: 280px;
+  }
+  .TaskInput,
+  .AddTask {
+    padding: 0.5em;
+  }
+
+  .TaskInput input::placeholder {
+    font-size: 30px;
+  }
+
+  .NoTask,
+  .Tasklist li {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-indent: 5%;
+    font-size: 30px;
+  }
+
+  .Tasklist {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    width: 8em;
+  }
+
+  .Tasklist button {
+    width: 100px;
+    margin: 0;
+  }
+
+  .AddTask button {
+    width: 5.5em;
+  }
+
+  .AddTask {
+    margin-top: 0;
+  }
+
+  .AddTask button:active {
+    background-color: var(--TextColor);
+    color: var(--mainColor);
+    font-size: 2em;
+    animation: poup 0.2s ease-in-out alternate forwards;
+  }
+
+  @keyframes poup {
+    0% {
+      -webkit-transform: translateY(-8);
+      transform: translateY(-8);
+    }
+    50% {
+      -webkit-transform: translateY(8px);
+      transform: translateY(8px);
+    }
+    100% {
+      background-color: var(--mainColor);
+      color: var(--TextColor);
+      -webkit-transform: translateY(-8);
+      transform: translateY(-8);
+    }
+  }
+
+  .Tasklist li,
+  .Tasklist button {
+    animation: fadeSlide 0.5s ease-out normal forwards;
+  }
+
+  @keyframes fadeSlide {
+    0% {
+      transform: translatey(-1em);
+      opacity: 0;
+    }
+    50% {
+      opacity: 0;
+    }
+    100% {
+      transform: 0;
+    }
+  }
+}
+
+.Tasklist button:hover {
+  scale: 1;
+  transform: rotate(0deg) translate(0px);
+  opacity: 1;
 }
