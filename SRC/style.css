@@ -58,11 +58,11 @@ body {
 }
 
 /*======= H1 Style =========*/
-.AppTittle {
-  font-size: 2em;
-}
+.AppTittle,
 .TaskTittle {
   font-size: 3em;
+  color: #1c1c1c;
+
 }
 
 /*======= Input Style and Button Style =========*/
@@ -441,6 +441,7 @@ body {
 
   .AppTittle,
   .TaskTittle {
+    margin-top: 4px;
     font-size: 40px;
   }
 
