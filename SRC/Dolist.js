@@ -4,7 +4,6 @@ const AddNewTask = document.getElementById("AddTask");//Task const
 const getTask = document.getElementById("TaskInput");//take the user input 
 const NoTaskAlert = document.getElementById("NoTask")// If no task is add show an alert
 
-
 function NewTask() {//main function
   //Verify if input is empty
   if (getTask.value !== "") {
@@ -18,10 +17,12 @@ function NewTask() {//main function
     tasks.appendChild(taskText);
 
     const doneBtn = document.createElement("button")
+    doneBtn.id = "doneCheck";
     doneBtn.textContent = "✔";
     tasks.appendChild(doneBtn);
 
     const removeBtn = document.createElement("button")
+    removeBtn.id = "removeCheck";
     removeBtn.textContent = "X";
     tasks.appendChild(removeBtn);
 

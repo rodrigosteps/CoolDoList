@@ -32,7 +32,7 @@ body {
 }
 
 .AppLogo img {
-  width: 30em;
+  width: 40em;
 }
 /*======= Main Container Style =========*/
 .Container {
@@ -54,8 +54,7 @@ body {
   padding: var(--Padding);
   background-color: var(--CardColor);
   font-size: 1.5em;
-  border-radius: 30%;
-  corner-shape: squircle;
+  border-radius: var(--Radius);
 }
 
 /*======= H1 Style =========*/
@@ -215,7 +214,9 @@ body {
   flex-direction: row;
   margin-top: 0.2em;
   width: 13em;
-  padding-left: 1em;
+  padding: 0 0.3em;
+  overflow-wrap: break-word;
+  overflow-wrap: anywhere;
   text-overflow: wrap;
   border-radius: var(--Radius);
   border: var(--border);
@@ -246,7 +247,7 @@ body {
 /* Button to remove */
 .Tasklist button {
   width: 3em;
-  height: 3em;
+  height: 2em;
   margin-top: 0.5em;
   margin: 8px;
   font-size: 0.36em;
@@ -277,74 +278,102 @@ body {
   font-style: italic;
 }
 
+#doneCheck {
+  font-size: 22px;
+  font-weight: bolder;
+  color: green;
+}
+
+#removeCheck {
+  font-size: 22px;
+  font-weight: bolder;
+  color: red;
+}
+
 /*TABLET POTRAIT STYLE*/
 @media (min-width: 768px) and (max-width: 1024px) {
   .AppLogo {
-    width: 70em;
-    margin: 1em auto;
+    width: 100%;
+    margin: 0;
   }
-
-  .AppLogo img {
-    width: 20em;
+  .AppLogo img{
+    width: 650px;
   }
 
   .Container {
     display: flex;
     flex-direction: column;
-    width: 660px;
-    gap: 1em;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 0 10px;
   }
-
-  .Tasks,
-  .CardTask {
-    width: 540px;
-    font-size: 20px;
-  }
-
   .CardTask input {
-    width: 380px;
-  }
-  .TaskInput,
-  .AddTask {
-    padding: 0.5em;
+    width: 600px;
+    text-align: center;
+    text-indent: 0;
   }
 
-  .TaskInput input::placeholder {
-    font-size: 40px;
+  .CardTask,
+  .Tasks {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 6px 0;
+    width: 100%;
   }
 
-  .NoTask,
-  .Tasklist li {
-    overflow: hidden;
-    text-overflow: ellipsis;
-    font-size: 40px;
+  .AppTittle,
+  .TaskTittle {
+    font-size: 60px;
+  }
+
+  .NoTask {
+    position: absolute;
+    bottom: 40px;
+    right: 20px;
+    width: 480px;
+    font-size: 60px;
   }
 
   .Tasklist {
+    font-size: 20px;
     display: flex;
     flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    width: 10em;
+    flex-wrap: nowrap;
+    justify-content: center;
+    width: 100%;
+    color: var(--TextColor);
+    list-style: none;
   }
 
+  .Tasklist li {
+    font-size: 44px;
+    width: 100%;
+  }
+
+  .Tasklist li,
   .Tasklist button {
-    width: 200px;
-    margin: 0;
+    animation: fadeSlide 0.5s ease-out normal forwards;
   }
 
-  .AddTask button {
-    width: 5.5em;
-  }
-
-  .AddTask {
-    margin-top: 0;
+  @keyframes fadeSlide {
+    0% {
+      transform: translatey(-1em);
+      opacity: 0;
+    }
+    50% {
+      opacity: 0;
+    }
+    100% {
+      transform: 0;
+    }
   }
 
   .AddTask button:active {
     background-color: var(--TextColor);
     color: var(--mainColor);
-    font-size: 3em;
     animation: poup 0.2s ease-in-out infinite forwards;
   }
 
@@ -365,30 +394,26 @@ body {
     }
   }
 
-  .Tasklist li {
-    animation: fadeSlide 0.5s ease-out normal forwards;
+  .Tasklist button {
+    width: 150px;
+    height: 40px;
   }
 
-  @keyframes fadeSlide {
-    0% {
-      transform: translatey(-1em);
-      opacity: 0;
-    }
-    50% {
-      opacity: 0;
-    }
-    100% {
-      transform: 0;
-    }
+  .Tasklist button:active {
+    animation: poup 0.2s ease-in-out infinite forwards;
+    transform: translate(0px);
+    opacity: 1;
+    scale: 1;
+  }
+
+  .Tasklist button:hover {
+    transform: translate(0px);
+    scale: 1;
   }
 }
+
 /*MOBILE POTRAIT STYLE*/
 @media (min-width: 320px) and (max-width: 480px) {
-  html {
-    width: 100%;
-    align-items: center;
-  }
-
   .AppLogo {
     width: 100%;
     margin: 0;
@@ -461,7 +486,7 @@ body {
     }
   }
 
-    .AddTask button:active {
+  .AddTask button:active {
     background-color: var(--TextColor);
     color: var(--mainColor);
     animation: poup 0.2s ease-in-out infinite forwards;
@@ -489,117 +514,15 @@ body {
     height: 40px;
   }
 
-  .Tasklist button:hover,
   .Tasklist button:active {
-    animation: fadeSlide 0.5s ease-out normal forwards;
+    animation: poup 0.2s ease-in-out infinite forwards;
+    transform: translate(0px);
+    opacity: 1;
+    scale: 1;
+  }
+
+  .Tasklist button:hover {
     transform: translate(0px);
     scale: 1;
   }
 }
-/*
-  .Container {
-    display: flex;
-    flex-direction: column;
-    width: 360px;
-    gap: 1em;
-  }
-
-  .CardTask {
-    width: 340px;
-    font-size: 20px;
-  }
-
-  .CardTask input {
-    width: 280px;
-  }
-  .Tasks {
-    width: 340px;
-    font-size: 15px;
-    overflow: hidden;
-    text-overflow: ellipsis;
-  }
-  .TaskInput,
-  .AddTask {
-    padding: 0.5em;
-  }
-
-  .TaskInput input::placeholder {
-    font-size: 30px;
-  }
-
-  .NoTask,
-  .Tasklist li {
-    overflow: hidden;
-    text-overflow: ellipsis;
-    font-size: 30px;
-  }
-
-  .Tasklist {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    width: 8em;
-  }
-
-  .Tasklist button {
-    width: 100px;
-    margin: 0;
-  }
-
-  .AddTask button {
-    width: 5.5em;
-  }
-
-  .AddTask {
-    margin-top: 0;
-  }
-
-  .AddTask button:active {
-    background-color: var(--TextColor);
-    color: var(--mainColor);
-    font-size: 2em;
-    animation: poup 0.2s ease-in-out alternate forwards;
-  }
-
-  @keyframes poup {
-    0% {
-      -webkit-transform: translateY(-8);
-      transform: translateY(-8);
-    }
-    50% {
-      -webkit-transform: translateY(8px);
-      transform: translateY(8px);
-    }
-    100% {
-      background-color: var(--mainColor);
-      color: var(--TextColor);
-      -webkit-transform: translateY(-8);
-      transform: translateY(-8);
-    }
-  }
-
-  .Tasklist li,
-  .Tasklist button {
-    animation: fadeSlide 0.5s ease-out normal forwards;
-  }
-
-  @keyframes fadeSlide {
-    0% {
-      transform: translatey(-1em);
-      opacity: 0;
-    }
-    50% {
-      opacity: 0;
-    }
-    100% {
-      transform: 0;
-    }
-  }
-}
-
-.Tasklist button:hover {
-  scale: 1;
-  transform: rotate(0deg) translate(0px);
-}
-*/
