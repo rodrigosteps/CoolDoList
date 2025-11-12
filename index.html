@@ -1,103 +1,93 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <!-- General Links-->
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Gochi+Hand&family=Just+Another+Hand&family=Knewave&display=swap" rel="stylesheet"/>
- <link rel="stylesheet" href="./SRC/style.css" />
-      <!-- <link rel="shortcut icon" href="./ASSETS/favicon.svg" type="image/x-icon" /> -->
-    
-    <!-- meta dados for IOS and mobile -->
-    <meta name="mobile-web-app-capable" content="yes" />
-    <meta name="color-scheme" content="light dark">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <meta name="apple-mobile-web-app-title" content="Cool Do List">
-    <meta name="theme-color" content="#1c1c1c">
 
-    <link rel="apple-touch-icon" href="./ASSETS/favicon.svg">
-    <link rel="apple-touch-startup-image" href="./ASSETS/logo.svg">
-    
-    <!--Title -->
-    <title>Cool Do List</title>
-  </head>
+<head>
+  <!-- General Links-->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Gochi+Hand&family=Just+Another+Hand&family=Knewave&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="./SRC/style.css" />
+  <link rel="shortcut icon" href="./ASSETS/favicon.svg" type="image/x-icon" /> 
+  
+  <!-- meta dados for IOS and mobile -->
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="color-scheme" content="light dark">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Cool Do List">
+  <meta name="theme-color" content="#1c1c1c">
 
-  <body>
-    <!--Logo of App-->
-    <header class="AppLogo">
-      <img src="./ASSETS/logo.svg" alt="logo" />
-    </header>
-    
-    <main class="Container">
-      <article class="CardTask">
-        <!--Tittle-->
-        <section class="AppTittle">
-          <h1>Add your Task</h1>
-          <span class="NoTask" id="NoTask"> </span>
-        </section>
+  <link rel="apple-touch-icon" href="./ASSETS/favicon.svg">
+  <link rel="apple-touch-startup-image" href="./ASSETS/logo.svg">
 
-        <!-- Input Field-->
-        <section class="TaskInput">
-          <input id="TaskInput" type="text" placeholder="What your task ?" />
-        </section>
+  <!--Title -->
+  <title>Cool Do List</title>
+</head>
 
-        <!--Button-->
-        <section class="AddTask">
-          <button id="AddTask">Add Task</button>
-        </section>
-      </article>
+<body>
+  <!--Logo of App-->
+  <header class="AppLogo">
+    <img src="./ASSETS/logo.svg" alt="logo" />
+  </header>
 
-      <!--Task list-->
+  <main class="Container">
+    <article class="CardTask">
+      <!--Tittle-->
+      <section class="AppTittle">
+        <h1>Add your Task</h1>
+        <span class="NoTask" id="NoTask"> </span>
+      </section>
 
-      <aside class="Tasks" id="Tasks">
-        <section class="TaskTittle">
-          <h1>Tasks To Do</h1>
-        </section>
+      <!-- Input Field-->
+      <section class="TaskInput">
+        <input id="TaskInput" type="text" placeholder="What your task ?" />
+      </section>
 
-        <ul class="Tasklist" id="Tasklist"></ul> <ul class="Tasklist">
-      </aside>
-    </main>
+      <!--Button-->
+      <section class="AddTask">
+        <button id="AddTask">Add Task</button>
+      </section>
+    </article>
 
-    
-    <footer class="footer">
-      <a
-        class="footerLogo"
-        href="https://linktr.ee/rodrigosteps"
-        target="_blank"
-      >
-        <img src="./ASSETS/FOOTER2.svg" alt="logo footer" />
-      </a>
+    <!--Task list-->
 
-      <div class="social">
-        <div class="links">
-          <a href="https://github.com/rodrigosteps" target="_blank">
-            <img
-              src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/github/github-original-wordmark.svg"
-              alt="github"
-              id="logo1"
-            />
-          </a>
+    <aside class="Tasks" id="Tasks">
+      <section class="TaskTittle">
+        <h1>Tasks To Do</h1>
+      </section>
 
-          <a href="https://www.linkedin.com/in/rodrigosps/" target="_blank">
-            <img
-              src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/linkedin/linkedin-plain.svg"
-              alt="Linkdin"
-              id="logo3"
-            />
-          </a>
+      <ul class="Tasklist" id="Tasklist"></ul>
+      <ul class="Tasklist">
+    </aside>
+  </main>
 
-          <a href="https://www.behance.net/rodrigosteps" target="_blank">
-            <img
-              src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/behance/behance-plain.svg"
-              alt="beLogo"
-              id="logo3"
-            />
-          </a>
-        </div>
+
+  <footer class="footer">
+    <a class="footerLogo" href="https://linktr.ee/rodrigosteps" target="_blank">
+      <img src="./ASSETS/FOOTER2.svg" alt="logo footer" />
+    </a>
+
+    <div class="social">
+      <div class="links">
+        <a href="https://github.com/rodrigosteps" target="_blank">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/github/github-original-wordmark.svg"
+            alt="github" id="logo1" />
+        </a>
+
+        <a href="https://www.linkedin.com/in/rodrigosps/" target="_blank">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/linkedin/linkedin-plain.svg" alt="Linkdin"
+            id="logo3" />
+        </a>
+
+        <a href="https://www.behance.net/rodrigosteps" target="_blank">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/behance/behance-plain.svg" alt="beLogo"
+            id="logo3" />
+        </a>
       </div>
-    </footer>
-  </body>
-  <script src="./SRC/Dolist.js"></script>
+    </div>
+  </footer>
+</body>
+<script src="./SRC/Dolist.js"></script>
+
 </html>
