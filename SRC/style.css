@@ -8,15 +8,15 @@
 /*=======General Styles=========*/
 :root {
   --Tittlefont: "Just Another Hand";
-  --TaskFont: "Gochi Hand";
+  --TaskFont: "Indie Flower";
   --bkg: #fafafa;
   --mainMargin: 0 auto;
-  --mainColor: #fffc57;
-  --CardColor: rgb(246, 243, 202);
+  --mainColor: #fbf708;
+  --CardColor: rgb(255, 253, 232);
   --Radius: 24px;
   --OutsideRadius: 32px;
   --Padding: 1em;
-  --TextColor: #4f5403;
+  --TextColor: #1d1b01;
   --border: 3px solid #1c1c1c;
 }
 
@@ -51,7 +51,6 @@ body {
   width: 18em;
   height: 16em;
   margin: var(--mainMargin);
-  padding: var(--Padding);
   background-color: var(--CardColor);
   font-size: 1.5em;
   border-radius: var(--Radius);
@@ -67,7 +66,7 @@ body {
 /*======= Input Style and Button Style =========*/
 .TaskInput,
 .AddTask {
-  padding: var(--Padding);
+  padding: 0.5em;
 }
 
 .TaskInput input::placeholder {
@@ -93,20 +92,21 @@ body {
 }
 
 .TaskInput input:focus {
+  height: 76px;
   font-size: 1.5em;
   padding-top: 6px;
   text-indent: 10%;
-  scale: 1.1;
+  scale: 1.05;
   transition: 0.2s ease-in-out;
   outline: none;
 }
 
 .AddTask button {
   padding: 0.2em;
-  font-size: 2em;
+  font-size: 3em;
   border-radius: var(--Radius);
   background-color: var(--mainColor);
-  font-family: var(--TaskFont);
+  font-family: var(--Tittlefont);
   color: var(--TextColor);
   border-top: 1px solid black;
   border-bottom: 3px solid black;
@@ -118,7 +118,6 @@ body {
 .AddTask button:hover {
   background-color: var(--TextColor);
   color: var(--mainColor);
-  font-size: 2em;
   cursor: pointer;
   animation: poup 0.2s ease-in-out alternate forwards;
 }
